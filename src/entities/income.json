@@ -1,0 +1,59 @@
+{
+  "name": "Income",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Título del ingreso"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 1000000,
+      "description": "Cantidad del ingreso"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "salary",
+        "freelance",
+        "investment",
+        "bonus",
+        "other"
+      ],
+      "default": "other",
+      "description": "Categoría del ingreso"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha del ingreso"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Descripción del ingreso"
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si es un ingreso recurrente"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "monthly",
+        "yearly"
+      ],
+      "description": "Frecuencia si es recurrente"
+    }
+  },
+  "required": [
+    "title",
+    "amount",
+    "date"
+  ]
+}

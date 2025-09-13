@@ -1,0 +1,79 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Expense title"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 100000,
+      "description": "Expense amount"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Expense category"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expense date"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Expense description"
+    },
+    "budget_id": {
+      "type": "string",
+      "description": "Associated budget ID"
+    },
+    "goal_id": {
+      "type": "string",
+      "description": "Associated goal ID (if saving towards goal)"
+    },
+    "paid_by": {
+      "type": "string",
+      "format": "email",
+      "description": "Email of person who paid"
+    },
+    "shared_with": {
+      "type": "array",
+      "description": "List of people sharing this expense",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0.01
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "settled"
+      ],
+      "default": "pending",
+      "description": "Expense status"
+    }
+  },
+  "required": [
+    "title",
+    "amount",
+    "category",
+    "date"
+  ]
+}

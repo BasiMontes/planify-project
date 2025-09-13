@@ -1,0 +1,45 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email del usuario que recibe la notificación"
+    },
+    "title": {
+      "type": "string",
+      "description": "Título de la notificación"
+    },
+    "message": {
+      "type": "string",
+      "description": "Mensaje detallado"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "alert",
+        "goal_update",
+        "new_expense",
+        "comment",
+        "invite"
+      ],
+      "default": "alert",
+      "description": "Tipo de notificación"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica si la notificación ha sido leída"
+    },
+    "link": {
+      "type": "string",
+      "description": "Enlace opcional a la página relevante"
+    }
+  },
+  "required": [
+    "user_email",
+    "title",
+    "message",
+    "type"
+  ]
+}

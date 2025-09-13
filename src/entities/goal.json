@@ -1,0 +1,64 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Goal title"
+    },
+    "target_amount": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 10000000,
+      "description": "Target amount to save"
+    },
+    "current_amount": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "Current saved amount"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Goal deadline"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Goal description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "vacation",
+        "emergency",
+        "purchase",
+        "investment",
+        "other"
+      ],
+      "default": "other",
+      "description": "Goal category"
+    },
+    "collaborators": {
+      "type": "array",
+      "description": "List of collaborator emails",
+      "items": {
+        "type": "string",
+        "format": "email"
+      }
+    },
+    "is_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether goal is completed"
+    }
+  },
+  "required": [
+    "title",
+    "target_amount",
+    "deadline"
+  ]
+}

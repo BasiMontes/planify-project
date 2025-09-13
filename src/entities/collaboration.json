@@ -1,0 +1,58 @@
+{
+  "name": "Collaboration",
+  "type": "object",
+  "properties": {
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "budget",
+        "goal",
+        "expense"
+      ],
+      "description": "Tipo de entidad compartida"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "ID de la entidad compartida"
+    },
+    "owner_email": {
+      "type": "string",
+      "description": "Email del propietario"
+    },
+    "collaborator_email": {
+      "type": "string",
+      "description": "Email del colaborador"
+    },
+    "permission_level": {
+      "type": "string",
+      "enum": [
+        "view",
+        "edit",
+        "admin"
+      ],
+      "default": "view",
+      "description": "Nivel de permisos"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Estado de la invitación"
+    },
+    "invited_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha de invitación"
+    }
+  },
+  "required": [
+    "entity_type",
+    "entity_id",
+    "owner_email",
+    "collaborator_email"
+  ]
+}

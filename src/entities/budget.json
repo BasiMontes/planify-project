@@ -1,0 +1,73 @@
+{
+  "name": "Budget",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Budget name"
+    },
+    "total_amount": {
+      "type": "number",
+      "minimum": 0.01,
+      "maximum": 1000000,
+      "description": "Total monthly budget amount"
+    },
+    "current_spent": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "Amount spent this month"
+    },
+    "month": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}$",
+      "description": "Budget month (YYYY-MM format)"
+    },
+    "categories": {
+      "type": "array",
+      "description": "Budget categories with limits",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "limit": {
+            "type": "number",
+            "minimum": 0
+          },
+          "spent": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          }
+        }
+      }
+    },
+    "collaborators": {
+      "type": "array",
+      "description": "List of collaborator emails",
+      "items": {
+        "type": "string",
+        "format": "email"
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether budget is currently active"
+    }
+  },
+  "required": [
+    "name",
+    "total_amount",
+    "month"
+  ]
+}
